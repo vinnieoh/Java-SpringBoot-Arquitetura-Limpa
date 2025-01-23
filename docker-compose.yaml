@@ -1,0 +1,33 @@
+services:
+  pg_java:
+    build:
+      dockerfile: ./docker/db.Dockerfile
+      context: .
+    image: vinnioh/pg_java
+    container_name: pg_java
+    ports:
+      - "5432:5432"
+    networks:
+      - nwnode
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+
+  # api:
+  #     build:
+  #       dockerfile: ./docker/api.Dockerfile
+  #       context: .
+  #     image: vinnieoh/api_node
+  #     container_name: api_node
+  #     ports:
+  #       - "3000:3000"
+  #     networks:
+  #       - nwnode
+  #     depends_on:
+  #       - "pg_java"
+
+networks:
+  nwnode:
+    driver: bridge
+
+volumes:
+  pgdata:
