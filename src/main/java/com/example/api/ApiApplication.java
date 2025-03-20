@@ -1,6 +1,6 @@
 package com.example.api;
 
-import com.example.api.infrastructure.env.EnvConfig;
+import com.example.api.infrastructure.config.env.EnvConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

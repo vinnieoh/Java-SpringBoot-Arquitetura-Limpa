@@ -1,4 +1,4 @@
-FROM postgres:15.3-alpine
+FROM postgres:17.4-alpine
 LABEL version="1.0"
 LABEL description="API usando Node.js e PostgreSQL"
 ENV POSTGRES_USER=postgres

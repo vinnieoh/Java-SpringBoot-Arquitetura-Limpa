@@ -1,4 +1,4 @@
-package com.example.api.infrastructure.env;
+package com.example.api.infrastructure.config.env;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
@@ -16,9 +16,6 @@ public class EnvConfig {
         System.setProperty("DB_NAME", dotenv.get("DB_NAME"));
         System.setProperty("DB_USERNAME", dotenv.get("DB_USERNAME"));
         System.setProperty("DB_PASSWORD", dotenv.get("DB_PASSWORD"));
-        System.setProperty("DB_DRIVER", dotenv.get("DB_DRIVER"));
-        System.setProperty("DB_DIALECT", dotenv.get("DB_DIALECT"));
-        System.setProperty("SPRING_JPA_SHOW_SQL", dotenv.get("SPRING_JPA_SHOW_SQL", "false"));
         System.setProperty("SERVER_PORT", dotenv.get("SERVER_PORT", "8080"));
 
     }
