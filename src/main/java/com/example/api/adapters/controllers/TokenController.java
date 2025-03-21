@@ -1,9 +1,11 @@
 package com.example.api.adapters.controllers;
 
 
+import com.example.api.adapters.dto.ErrorResponse;
 import com.example.api.adapters.dto.LoginRequest;
 import com.example.api.adapters.dto.LoginResponse;
 import com.example.api.infrastructure.persistence.repositories.UserRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -32,12 +34,14 @@ public class TokenController {
     }
 
     @PostMapping(V1 + "/auth/login")
-    public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
 
         var user = userRepository.findByEmail(loginRequest.email());
 
         if (user.isEmpty() || !user.get().isLoginCorrect(loginRequest, passwordEncoder)) {
-            throw new BadCredentialsException("user or password is invalid!");
+            return ResponseEntity
+                    .status(HttpStatus.UNAUTHORIZED)
+                    .body(new ErrorResponse("Usuário ou senha inválidos"));
         }
 
         var now = Instant.now();

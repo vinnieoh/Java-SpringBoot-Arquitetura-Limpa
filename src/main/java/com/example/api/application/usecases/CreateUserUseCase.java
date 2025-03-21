@@ -2,10 +2,12 @@ package com.example.api.application.usecases;
 
 
 import com.example.api.domain.entities.User;
+import com.example.api.domain.exceptions.InvalidUserException;
 import com.example.api.infrastructure.config.validate.DocumentValidator;
 import com.example.api.infrastructure.persistence.model.UserModel;
 import com.example.api.infrastructure.persistence.repositories.UserRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,18 +32,16 @@ public class CreateUserUseCase {
         switch(user.getUserType()){
             case COMUM -> {
                 if (!DocumentValidator.isValidCPF(user.getDocument())) {
-                    throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY,
-                            "CPF inválido para usuário COMUM.");
+                    throw new InvalidUserException("CPF inválido para usuário COMUM.");
+
                 }
             }
             case LOGISTA -> {
                 if (!DocumentValidator.isValidCNPJ(user.getDocument())) {
-                    throw new ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY,
-                            "CNPJ inválido para usuário LOGISTA.");
+                    throw new InvalidUserException("CNPJ inválido para usuário LOGISTA");
                 }
             }
-            default -> throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
-                    "Tipo de usuário inválido. Use COMUM ou LOGISTA.");
+            default -> throw new InvalidUserException("Tipo de usuário inválido. Use COMUM ou LOGISTA.");
         }
 
         if (userRepository.findByEmail(user.getEmail()).isPresent() ||
