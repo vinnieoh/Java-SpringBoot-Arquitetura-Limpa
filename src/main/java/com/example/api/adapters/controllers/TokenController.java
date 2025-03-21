@@ -1,13 +1,12 @@
 package com.example.api.adapters.controllers;
 
 
-import com.example.api.adapters.dto.ErrorResponse;
-import com.example.api.adapters.dto.LoginRequest;
-import com.example.api.adapters.dto.LoginResponse;
+import com.example.api.adapters.dto.errorsDTO.ErrorResponse;
+import com.example.api.adapters.dto.loginDTO.LoginRequest;
+import com.example.api.adapters.dto.loginDTO.LoginResponse;
 import com.example.api.infrastructure.persistence.repositories.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
@@ -58,4 +57,5 @@ public class TokenController {
 
         return ResponseEntity.ok(new LoginResponse(jwtValue, expiresIn));
     }
+
 }

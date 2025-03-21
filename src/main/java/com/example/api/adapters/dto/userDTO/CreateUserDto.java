@@ -1,4 +1,4 @@
-package com.example.api.adapters.dto;
+package com.example.api.adapters.dto.userDTO;
 
 import com.example.api.domain.Enum.UserType;
 

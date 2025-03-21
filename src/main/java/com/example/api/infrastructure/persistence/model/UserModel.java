@@ -1,6 +1,6 @@
 package com.example.api.infrastructure.persistence.model;
 
-import com.example.api.adapters.dto.LoginRequest;
+import com.example.api.adapters.dto.loginDTO.LoginRequest;
 import com.example.api.domain.Enum.UserType;
 import jakarta.persistence.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
