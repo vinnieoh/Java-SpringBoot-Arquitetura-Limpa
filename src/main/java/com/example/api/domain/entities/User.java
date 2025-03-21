@@ -3,15 +3,17 @@ package com.example.api.domain.entities;
 
 import com.example.api.domain.Enum.UserType;
 
+import java.util.UUID;
+
 public class User {
-    private Long id;
+    private UUID id;
     private String fullName;
     private String document;
     private String email;
     private String password;
     private UserType userType;
 
-    public User(Long id, String fullName, String document, String email, String password, UserType userType) {
+    public User(UUID id, String fullName, String document, String email, String password, UserType userType) {
         this.id = id;
         this.fullName = fullName;
         this.document = document;
@@ -20,7 +22,7 @@ public class User {
         this.userType = userType;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 

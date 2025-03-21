@@ -17,16 +17,16 @@ public class UserModel {
     @Column(name = "user_id", columnDefinition = "UUID DEFAULT gen_random_uuid()")
     private UUID userId;
 
-    @Column(name = "full_name", nullable = false, length = 250)
+    @Column(name = "full_name", nullable = false, length = 100)
     private String fullName;
 
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "document", unique = true, nullable = false, length = 250)
+    @Column(name = "document", unique = true, nullable = false, length = 18)
     private String document;
 
-    @Column(name = "email", unique = true, nullable = false, length = 250)
+    @Column(name = "email", unique = true, nullable = false, length = 120)
     private String email;
 
     @Enumerated(EnumType.STRING)
