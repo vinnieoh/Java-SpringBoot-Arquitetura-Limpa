@@ -17,7 +17,6 @@ public class EnvConfig {
         System.setProperty("DB_USERNAME", dotenv.get("DB_USERNAME"));
         System.setProperty("DB_PASSWORD", dotenv.get("DB_PASSWORD"));
         System.setProperty("SERVER_PORT", dotenv.get("SERVER_PORT", "8080"));
-
     }
 
 }

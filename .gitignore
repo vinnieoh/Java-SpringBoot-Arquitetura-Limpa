@@ -40,3 +40,6 @@ build/
 .env.test
 .env.production
 *.env
+
+app.key
+app.pub
