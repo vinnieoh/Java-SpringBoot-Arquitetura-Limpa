@@ -1,4 +1,4 @@
-# Java SpringBoot Arquitetura Limpa - 💰 Desafio PicPay Simplificado - Backend
+# Java SpringBoot Arquitetura Limpa: 💰 Desafio PicPay Simplificado - Backend
 
 Este projeto é uma implementação do [desafio backend do PicPay](https://github.com/PicPay/picpay-desafio-backend), construída com **Java 21** e **Spring Boot**, seguindo a **Arquitetura Limpa** (_Clean Architecture_).  
 
