@@ -2,9 +2,11 @@ package com.example.api.infrastructure.persistence.model;
 
 import com.example.api.adapters.dto.loginDTO.LoginRequest;
 import com.example.api.domain.Enum.UserType;
+import com.example.api.domain.exceptions.BusinessException;
 import jakarta.persistence.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 
@@ -32,6 +34,10 @@ public class UserModel {
     @Enumerated(EnumType.STRING)
     private UserType userType;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private WalletModel wallet;
+
+
     public UserModel() {
 
     }
@@ -39,6 +45,11 @@ public class UserModel {
     public UserModel(String document, String password) {
         this.document = document;
         this.password = password;
+    }
+
+    @PrePersist
+    public void initializeWallet() {
+        this.wallet = new WalletModel(this); // Cria automaticamente uma carteira ao cadastrar usuário
     }
 
     public UUID getUserId() {
@@ -92,5 +103,6 @@ public class UserModel {
     public boolean isLoginCorrect(LoginRequest loginRequest, PasswordEncoder passwordEncoder) {
         return passwordEncoder.matches(loginRequest.password(), this.password);
     }
+
 }
 

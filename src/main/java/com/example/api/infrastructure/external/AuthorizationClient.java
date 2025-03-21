@@ -8,10 +8,11 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.Map;
 
+import static com.example.api.infrastructure.config.configs.Configs.AUTHORIZATION_URL;
+
 @Component
 public class AuthorizationClient implements AuthorizationGateway {
 
-    private static final String AUTHORIZATION_URL = "https://util.devi.tools/api/v2/authorize";
     private final RestTemplate restTemplate;
 
     public AuthorizationClient() {

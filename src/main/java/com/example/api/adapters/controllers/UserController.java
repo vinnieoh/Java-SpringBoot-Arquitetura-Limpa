@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
-import static com.example.api.adapters.controllers.ApiVersion.V1;
+import static com.example.api.infrastructure.config.configs.Configs.API_V1;
 
 
 @RestController
-@RequestMapping(V1 + "/users")
+@RequestMapping(API_V1 + "/users")
 public class UserController {
 
     private final CreateUserUseCase createUserUseCase;
