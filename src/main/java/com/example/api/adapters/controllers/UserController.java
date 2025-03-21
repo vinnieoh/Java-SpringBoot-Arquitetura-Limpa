@@ -2,7 +2,7 @@ package com.example.api.adapters.controllers;
 
 
 import com.example.api.adapters.dto.CreateUserDto;
-import com.example.api.domain.usecases.CreateUserUseCase;
+import com.example.api.application.usecases.CreateUserUseCase;
 import com.example.api.domain.entities.User;
 
 import org.springframework.http.HttpStatus;

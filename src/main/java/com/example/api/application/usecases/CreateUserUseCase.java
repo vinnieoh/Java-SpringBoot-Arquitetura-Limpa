@@ -1,4 +1,4 @@
-package com.example.api.domain.usecases;
+package com.example.api.application.usecases;
 
 
 import com.example.api.domain.entities.User;
