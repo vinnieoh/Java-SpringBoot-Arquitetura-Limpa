@@ -23,6 +23,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 
+import static com.example.api.adapters.controllers.ApiVersion.V1;
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
@@ -38,8 +40,8 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.POST, "/users").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/login").permitAll()
+                        .requestMatchers(HttpMethod.POST, V1 + "/users").permitAll()
+                        .requestMatchers(HttpMethod.POST, V1 +"/auth/login").permitAll()
                         .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))

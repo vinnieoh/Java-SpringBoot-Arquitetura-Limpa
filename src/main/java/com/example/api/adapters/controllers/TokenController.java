@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Instant;
 
+import static com.example.api.adapters.controllers.ApiVersion.V1;
+
 @RestController
 public class TokenController {
 
@@ -29,7 +31,7 @@ public class TokenController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping("/login")
+    @PostMapping(V1 + "/auth/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
 
         var user = userRepository.findByEmail(loginRequest.email());

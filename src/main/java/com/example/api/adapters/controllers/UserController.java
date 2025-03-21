@@ -10,9 +10,11 @@ import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
 
+import static com.example.api.adapters.controllers.ApiVersion.V1;
+
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping(V1 + "/users")
 public class UserController {
 
     private final CreateUserUseCase createUserUseCase;
