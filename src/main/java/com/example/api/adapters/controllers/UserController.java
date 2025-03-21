@@ -4,10 +4,10 @@ package com.example.api.adapters.controllers;
 import com.example.api.adapters.dto.userDTO.CreateUserDto;
 import com.example.api.adapters.dto.errorsDTO.ErrorResponse;
 import com.example.api.adapters.dto.userDTO.UpdateUserDto;
-import com.example.api.application.usecases.CreateUserUseCase;
-import com.example.api.application.usecases.DeleteUserUseCase;
-import com.example.api.application.usecases.GetUserByIdUseCase;
-import com.example.api.application.usecases.UpdateUserUseCase;
+import com.example.api.application.usecases.user.CreateUserUseCase;
+import com.example.api.application.usecases.user.DeleteUserUseCase;
+import com.example.api.application.usecases.user.GetUserByIdUseCase;
+import com.example.api.application.usecases.user.UpdateUserUseCase;
 import com.example.api.domain.entities.User;
 
 import com.example.api.domain.exceptions.UserException;

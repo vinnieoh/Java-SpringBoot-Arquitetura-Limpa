@@ -1,4 +1,4 @@
-package com.example.api.application.usecases;
+package com.example.api.application.usecases.user;
 
 import com.example.api.domain.exceptions.UserException;
 import com.example.api.infrastructure.persistence.repositories.UserRepository;
